@@ -1,0 +1,100 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="ja">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META NAME="keywords" CONTENT="miike, coal, coalmine, 三池炭鉱,石炭,労働歌"> 
+<TITLE>父ちゃんたちの労働歌</TITLE>
+
+	<style type="text/css"><!--
+		a:hover{
+			background-color: #000000;
+			color: #000000;
+		}
+	--></style>
+	<script language="JavaScript"><!--
+	//
+
+	//--slideLAYERs
+		var wx=new Array()
+		var wy=new Array()
+		var ex=new Array()
+		var ey=new Array()
+		var spd=new Array()
+		var step=new Array()
+		var stepX=new Array()
+		var stepY=new Array()
+		var mvFlag=new Array()
+		var slideID=new Array()
+		var count=new Array()
+
+	function slideLAYERs(layName,startX,startY,endX,endY,speed,stpx){
+		if(!mvFlag[layName]){
+		  clearTimeout(slideID[layName])
+		  count[layName]=0
+		  var ofX=(endX-startX)
+		  var ofY=(endY-startY)
+		  step[layName]=
+			Math.max(Math.abs(ofX),Math.abs(ofY))/stpx 
+		  stepX[layName]=ofX/step[layName]
+		  stepY[layName]=ofY/step[layName]
+		  wx[layName]=startX
+		  wy[layName]=startY
+		  ex[layName]=endX
+		  ey[layName]=endY
+		  spd[layName]=speed
+		  mvFlag[layName]=true
+		}
+		if(mvFlag[layName]&&(count[layName]<=step[layName]-1)){
+		  count[layName]++
+		  wx[layName]+=stepX[layName]
+		  wy[layName]+=stepY[layName]
+		  clearTimeout(slideID[layName])
+		  slideID[layName]=
+		  setTimeout('slideLAYERs("'+layName+'")',spd[layName])
+		}else{
+		  wx[layName]=ex[layName]
+		  wy[layName]=ey[layName]
+		  clearTimeout(slideID[layName]);mvFlag[layName]=false
+		}
+		if(document.layers)document.layers[layName].moveTo(wx[layName],wy[layName])
+		if(document.all)document.all(layName).style.posLeft=wx[layName]
+		if(document.all)document.all(layName).style.posTop=wy[layName]
+	}
+
+	window.onload=movetx
+	function movetx(){
+	//								
+		mvFlag['txt3']=false;slideLAYERs('txt3',50,600,155,100,4,3)
+
+	}
+	function setBGCOLOR(layName,color){  
+		if(document.layers)document.layers[layName].bgColor=color 
+		if(document.all)document.all(layName).style.backgroundColor=color
+	}
+
+	//--></script>
+
+	<style TYPE="text/css"><!--
+		.moves { position:absolute;top:-100;left:420;}
+	--></style>
+
+</HEAD>
+
+<BODY bgcolor="#ff0000" text="#fffafa" link="#f0f0f0" vlink="#888888">
+
+<div class="moves" id="txt3">
+<font size=+7 color="#ffff00"><B>父ちゃんたちの労働歌</B></font>
+</div>
+
+<BR><BR><BR><BR>
+
+<CENTER>
+<IMG src="utagoe.jpg" width="500" height="333" BORDER="0" alt="うたごえ行動隊"><P>
+<font color="#000000"><B>三池労組におけるうたごえ行動隊。<BR>
+前列左から3人目の眼鏡の男性が藤本さん（四山鉱）。後列左側が岩下兄弟。<BR>
+（炭労40年史写真集「炭鉱（ヤマ）に生きて」より）</B></font><BR>
+(提供：織田さん)
+</CENTER>
+
+</BODY>
+</HTML>
